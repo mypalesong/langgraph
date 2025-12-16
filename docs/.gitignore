@@ -2,7 +2,7 @@
 /node_modules
 
 # Production
-/build
+# /build  # 빌드 결과물 포함 (GitHub Pages 배포용)
 
 # Generated files
 .docusaurus
