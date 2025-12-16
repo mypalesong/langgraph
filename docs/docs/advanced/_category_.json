@@ -1,0 +1,8 @@
+{
+  "label": "고급 기능",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "체크포인팅, 스트리밍, Human-in-the-loop 등 고급 기능을 학습합니다."
+  }
+}

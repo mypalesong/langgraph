@@ -1,0 +1,8 @@
+{
+  "label": "실전 예제",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "실제 사용 가능한 LangGraph 애플리케이션 예제입니다."
+  }
+}

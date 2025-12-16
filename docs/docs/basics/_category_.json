@@ -1,0 +1,8 @@
+{
+  "label": "기본 개념",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "LangGraph의 핵심 구성 요소인 State, Node, Edge, Graph에 대해 알아봅니다."
+  }
+}
