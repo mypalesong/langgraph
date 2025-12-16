@@ -21,18 +21,17 @@ LangGraph의 해결책:
 
 ## 핵심 개념
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Graph                                 │
-│  ┌─────────┐         ┌─────────┐         ┌─────────┐       │
-│  │  Node   │──Edge──▶│  Node   │──Edge──▶│  Node   │       │
-│  │ (Start) │         │(Process)│         │  (End)  │       │
-│  └─────────┘         └─────────┘         └─────────┘       │
-│       │                   │                   ▲             │
-│       │                   │                   │             │
-│       └───────────────────┴───────────────────┘             │
-│                      State                                   │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph Graph
+        direction LR
+        START((Start)) --> Process[Process Node]
+        Process --> END((End))
+    end
+
+    State[(State)] -.-> START
+    State -.-> Process
+    State -.-> END
 ```
 
 | 개념 | 설명 |

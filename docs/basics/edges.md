@@ -25,10 +25,9 @@ graph.add_edge("b", "c")
 graph.add_edge("c", END)
 ```
 
-```
-┌───────┐    ┌───┐    ┌───┐    ┌───┐    ┌─────┐
-│ START │───▶│ a │───▶│ b │───▶│ c │───▶│ END │
-└───────┘    └───┘    └───┘    └───┘    └─────┘
+```mermaid
+flowchart LR
+    START((START)) --> a[a] --> b[b] --> c[c] --> END((END))
 ```
 
 ## 조건부 엣지 (Conditional Edge)
@@ -58,18 +57,11 @@ graph.add_conditional_edges(
 )
 ```
 
-```
-                    ┌─────────────────┐
-              ┌────▶│ process_success │
-              │     └─────────────────┘
-              │
-┌───────┐     │     ┌─────────────────┐
-│ check │─────┼────▶│ process_failure │
-└───────┘     │     └─────────────────┘
-              │
-              │     ┌────────────┐
-              └────▶│ retry_node │
-                    └────────────┘
+```mermaid
+flowchart LR
+    check[check] -->|success| process_success[process_success]
+    check -->|failure| process_failure[process_failure]
+    check -->|retry| retry_node[retry_node]
 ```
 
 ## END로의 조건부 라우팅
@@ -140,17 +132,12 @@ graph.add_conditional_edges(
 graph.add_edge("tools", "llm")
 ```
 
-```
-┌───────┐     ┌─────┐     tool_calls?     ┌───────┐
-│ START │────▶│ LLM │─────────────────────▶│ Tools │
-└───────┘     └─────┘          │          └───────┘
-                 ▲              │              │
-                 │              │ no           │
-                 │              ▼              │
-                 │           ┌─────┐           │
-                 │           │ END │           │
-                 │           └─────┘           │
-                 └────────────────────────────┘
+```mermaid
+flowchart LR
+    START((START)) --> LLM[LLM]
+    LLM -->|tool_calls| Tools[Tools]
+    LLM -->|no| END((END))
+    Tools --> LLM
 ```
 
 ## 완전한 예제: 워크플로우 분기

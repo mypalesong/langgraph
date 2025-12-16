@@ -8,18 +8,16 @@ sidebar_position: 3
 
 ## 아키텍처
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                    Supervisor                             │
-│                   (작업 조율자)                            │
-└──────────────────────────────────────────────────────────┘
-                          │
-           ┌──────────────┼──────────────┐
-           ▼              ▼              ▼
-    ┌───────────┐  ┌───────────┐  ┌───────────┐
-    │ Researcher│  │  Writer   │  │ Reviewer  │
-    │ (조사담당) │  │ (작성담당) │  │ (검토담당) │
-    └───────────┘  └───────────┘  └───────────┘
+```mermaid
+flowchart TB
+    Supervisor["Supervisor\n(작업 조율자)"]
+    Supervisor --> Researcher["Researcher\n(조사담당)"]
+    Supervisor --> Writer["Writer\n(작성담당)"]
+    Supervisor --> Reviewer["Reviewer\n(검토담당)"]
+
+    Researcher --> Supervisor
+    Writer --> Supervisor
+    Reviewer --> Supervisor
 ```
 
 ## 완성 코드
